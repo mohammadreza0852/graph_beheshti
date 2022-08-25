@@ -15,7 +15,7 @@ class Relation(models.Model):
     first_node_id = models.CharField(max_length=255, verbose_name=_('first node id'))
     second_node_type = models.CharField(choices=TypeChoices.choices, max_length=20, verbose_name=_('second node type'))
     second_node_id = models.CharField(max_length=255, verbose_name=_('second node id'))
-    description = models.CharField(max_length=255, verbose_name=_('description'), null=True)
+    description = models.CharField(max_length=255, verbose_name=_('description'), null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not (self.check_for_node_ids(self.first_node_id, self.first_node_type) \

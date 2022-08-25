@@ -1,9 +1,10 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
 from .models import House, Person, Vehicle, Relation
 
 
-class HouseAdmin(admin.ModelAdmin):
+class HouseAdmin(ImportExportModelAdmin):
     list_display = (
         'id',
         'post_number',
@@ -15,7 +16,7 @@ class HouseAdmin(admin.ModelAdmin):
     )
 
 
-class PersonAdmin(admin.ModelAdmin):
+class PersonAdmin(ImportExportModelAdmin):
     list_display = (
         'id',
         'name',
@@ -29,7 +30,7 @@ class PersonAdmin(admin.ModelAdmin):
     )
 
 
-class VehicleAdmin(admin.ModelAdmin):
+class VehicleAdmin(ImportExportModelAdmin):
     list_display = (
         'id',
         'manufacture_id',
@@ -41,8 +42,9 @@ class VehicleAdmin(admin.ModelAdmin):
     )
 
 
-class RelationAdmin(admin.ModelAdmin):
+class RelationAdmin(ImportExportModelAdmin):
     list_display = (
+        'id',
         'first_node_type',
         'first_node_id',
         'second_node_type',

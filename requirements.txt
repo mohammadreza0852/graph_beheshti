@@ -6,3 +6,4 @@ sqlparse==0.4.2
 tzdata==2022.1
 psycopg2==2.9.3
 python-dotenv==0.20.0
+django-import-export==2.8.0
