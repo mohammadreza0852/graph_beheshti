@@ -4,6 +4,9 @@ from rest_framework import serializers
 
 from .nodes import House, Person, Vehicle
 
+class Dataset(models.Model):
+    filename = models.CharField(max_length=255, null=True, verbose_name=_('filename'))
+
 class Relation(models.Model):
     
     class TypeChoices(models.TextChoices):
@@ -16,6 +19,7 @@ class Relation(models.Model):
     second_node_type = models.CharField(choices=TypeChoices.choices, max_length=20, verbose_name=_('second node type'))
     second_node_id = models.CharField(max_length=255, verbose_name=_('second node id'))
     description = models.CharField(max_length=255, verbose_name=_('description'), null=True, blank=True)
+    dataset = models.ForeignKey(Dataset, on_delete=models.SET_NULL, null=True)
 
     def save(self, *args, **kwargs):
         if not (self.check_for_node_ids(self.first_node_id, self.first_node_type) \

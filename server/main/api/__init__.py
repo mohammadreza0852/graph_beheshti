@@ -1,1 +1,1 @@
-from .graph import GraphViewSet
+from .graph import GraphViewSet, NodeView
