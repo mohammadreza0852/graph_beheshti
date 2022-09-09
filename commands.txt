@@ -1,0 +1,5 @@
+env/scripts/activate
+python manage.py migrate
+
+cd server
+python manage.py runserver 8000
