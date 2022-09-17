@@ -8,7 +8,13 @@ from ..serializers import RelationSeializer
 
 class GraphViewSet(viewsets.ModelViewSet):
     serializer_class = RelationSeializer
-    queryset = Relation.objects.all()
+
+    def get_queryset(self):
+        dataset_id = self.request.GET.get('dataset_id')
+        if dataset_id:
+            return Relation.objects.filter(dataset__id=dataset_id)
+        else:
+            return Relation.objects.all()
 
 
 class NodeView(views.APIView):

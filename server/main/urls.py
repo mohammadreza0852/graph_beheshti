@@ -1,10 +1,11 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .api import GraphViewSet, NodeView
+from .api import GraphViewSet, NodeView, DatasetView
 
 router = DefaultRouter()
 router.register(r'graph', GraphViewSet, basename='graph')
+router.register(r'dataset', DatasetView, basename='dataset')
 
 app_name = 'main'
 
