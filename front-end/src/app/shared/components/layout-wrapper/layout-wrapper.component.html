@@ -1,0 +1,17 @@
+<nz-layout>
+    <nz-header>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal">
+            <li
+                *ngFor="let module of modules"
+                nz-menu-item
+                [nzSelected]="module.id === selectedModule?.id"
+                (click)="moduleClicked(module)"
+            >
+                {{ module.name }}
+            </li>
+        </ul>
+    </nz-header>
+    <nz-content>
+        <ng-content></ng-content>
+    </nz-content>
+</nz-layout>

@@ -1,0 +1,16 @@
+.ant-table {
+  height: 100vh;
+}
+
+::ng-deep {
+  nz-pagination {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .ant-table-pagination.ant-pagination {
+    margin: 16px 0;
+    padding-right: 16px;
+  }
+}
