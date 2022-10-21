@@ -1,15 +1,21 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {GraphDto} from './models/graph-dto';
+import {Config} from './config';
 
 @Injectable()
 export class GraphApiService {
-    public baseUrl = 'http://127.0.0.1:8000';
+    public baseUrl = Config.baseServiceUrl;
 
     public constructor(private http: HttpClient) {}
 
-    public async getGraph(): Promise<GraphDto[]> {
-        const result = (await this.http.get(`${this.baseUrl}/api/graph/`).toPromise()) as any;
+    public async getGraph(datasetId?: number): Promise<GraphDto[]> {
+        let url = `${this.baseUrl}/api/graph/`;
+        if (datasetId){
+            url += `?dataset_id=${datasetId}`;
+        }
+
+        const result = (await this.http.get(url).toPromise()) as any;
 
         return result.map((x: any) => new GraphDto(x));
     }
