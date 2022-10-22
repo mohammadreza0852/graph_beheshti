@@ -3,8 +3,11 @@ from import_export.admin import ImportExportModelAdmin
 
 from .resources.edges import RelationResource
 
-from .models import House, Person, Vehicle, Relation
+from .models import House, Person, Vehicle, Relation, NodeImage
 
+
+class NodeImageAdmin(admin.ModelAdmin):
+    pass
 
 class HouseAdmin(ImportExportModelAdmin):
     list_display = (
@@ -62,6 +65,7 @@ class RelationAdmin(ImportExportModelAdmin):
     )
 
 
+admin.site.register(NodeImage, NodeImageAdmin)
 admin.site.register(House, HouseAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Vehicle, VehicleAdmin)

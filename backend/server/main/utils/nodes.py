@@ -1,12 +1,12 @@
-from ..models import House, Person, Vehicle
-from ..serializers import HouseSeializer, PersonSeializer, VehicleSeializer
+from ..models import House, Person, Vehicle, NodeImage
+from ..serializers import HouseSeializer, PersonSeializer, VehicleSeializer, NodeImageSeializer
 
 class NodeUtils:
 
     class NodeChoices:
-        PERSON = 'person'
-        HOUSE = 'house'
-        VEHICLE = 'vehicle'
+        PERSON = 'Person'
+        HOUSE = 'House'
+        VEHICLE = 'Vehicle'
 
     @classmethod
     def get_node_by_type(cls, node_id, node_type)  :
@@ -19,3 +19,8 @@ class NodeUtils:
         if node_type == cls.NodeChoices.VEHICLE:
             vehicle = Vehicle.objects.get(manufacture_id=node_id)
             return VehicleSeializer(vehicle).data
+
+    @classmethod
+    def get_image_by_type(cls, node_type, request):
+        node_image = NodeImage.objects.get(node_type=node_type)
+        return NodeImageSeializer(node_image, context={"request": request}).data

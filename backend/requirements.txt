@@ -8,3 +8,4 @@ psycopg2==2.9.3
 python-dotenv==0.20.0
 django-import-export==2.8.0
 django-cors-headers==3.13.0
+Pillow==9.2.0
