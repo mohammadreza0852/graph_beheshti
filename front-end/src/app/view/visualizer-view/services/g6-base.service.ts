@@ -3,10 +3,15 @@ import {G6ConfigService} from './g6-config.service';
 import G6, {Graph} from '@antv/g6';
 import {G6UtilitiesService} from './g6-utilities.service';
 import {VisualizerService} from './visualizer.service';
+import {ImagesRepositoryService} from './images-repository.service';
 
 @Injectable()
 export class G6BaseService extends G6ConfigService {
-    public constructor(private g6UtilitiesService: G6UtilitiesService, private visualizerService: VisualizerService) {
+    public constructor(
+        private g6UtilitiesService: G6UtilitiesService,
+        private visualizerService: VisualizerService,
+        private imageRepositoryService: ImagesRepositoryService
+    ) {
         super();
     }
 
@@ -30,14 +35,16 @@ export class G6BaseService extends G6ConfigService {
         data.nodes = [];
         data.edges = [];
         for (const node of serverGraphData.nodes) {
+            const imageUrl = await this.imageRepositoryService.getImage(node.type);
+
             data.nodes.push({
                 id: node.graphId,
                 size: 30,
-                img: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+                img: imageUrl,
                 type: 'donut',
                 icon: {
                     show: true,
-                    img: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+                    img: imageUrl,
                 },
             });
         }

@@ -22,7 +22,7 @@ export class PropertiesViewComponent {
             const node = visualizerService.graph.nodes.find((x) => x.graphId === item._cfg?.id);
             if (node == null) return;
 
-            const properties = await visualizerService.getNodeProperties(node.id, /*node?.type*/ 'person');
+            const properties = await visualizerService.getNodeProperties(node.id, node?.type);
 
             this.data = [];
             for (const propertiesKey in properties) {
@@ -32,17 +32,6 @@ export class PropertiesViewComponent {
                 });
             }
         });
-
-        this.data = [
-            {
-                title: 'hello',
-                content: 'hello man',
-            },
-            {
-                title: 'hello',
-                content: 'hello man',
-            },
-        ];
     }
 }
 
