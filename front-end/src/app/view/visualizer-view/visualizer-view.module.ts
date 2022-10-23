@@ -11,10 +11,12 @@ import {NzAvatarModule} from 'ng-zorro-antd/avatar';
 import {NzDividerModule} from 'ng-zorro-antd/divider';
 import {GraphApiService} from '../../api/graph-api.service';
 import {VisualizerService} from './services/visualizer.service';
+import {ImagesRepositoryService} from './services/images-repository.service';
+import {NodeImageApiService} from '../../api/node-image-api.service';
 
 @NgModule({
     declarations: [VisualizerViewComponent, PropertiesViewComponent],
-    providers: [G6BaseService, G6ConfigService, G6UtilitiesService, GraphApiService, VisualizerService],
+    providers: [G6BaseService, G6ConfigService, G6UtilitiesService, GraphApiService, VisualizerService, ImagesRepositoryService, NodeImageApiService],
     imports: [CommonModule, NzCardModule, NzListModule, NzAvatarModule, NzDividerModule],
 })
 export class VisualizerViewModule {}
