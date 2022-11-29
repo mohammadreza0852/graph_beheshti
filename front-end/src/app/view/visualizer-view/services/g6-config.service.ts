@@ -28,12 +28,18 @@ export class G6ConfigService {
             hover: {
                 stroke: '#c61a1a',
                 lineWidth: 2
+            },
+            hoverOther: {
+                fill: 'rgba(212,166,59,0.25)'
             }
         },
         edgeStateStyles: {
             hover: {
                 stroke: '#c61a1a',
             },
+            hoverOther: {
+                stroke: 'rgba(26,52,231,0.25)',
+            }
         },
 
     };
