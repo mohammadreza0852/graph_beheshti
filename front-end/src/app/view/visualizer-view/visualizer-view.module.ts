@@ -19,4 +19,6 @@ import {NodeImageApiService} from '../../api/node-image-api.service';
     providers: [G6BaseService, G6ConfigService, G6UtilitiesService, GraphApiService, VisualizerService, ImagesRepositoryService, NodeImageApiService],
     imports: [CommonModule, NzCardModule, NzListModule, NzAvatarModule, NzDividerModule],
 })
-export class VisualizerViewModule {}
+export class VisualizerViewModule {
+
+}
