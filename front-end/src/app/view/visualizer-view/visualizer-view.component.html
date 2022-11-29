@@ -1,3 +1,9 @@
 <div id="graph-container" #g6Container></div>
 
 <app-properties-view class="noselect"></app-properties-view>
+
+<div class="node-count">
+    <div class="content">
+        nodes: {{visualizerService.graph?.nodes?.length}} | edges: {{visualizerService.graph?.edges?.length}}
+    </div>
+</div>

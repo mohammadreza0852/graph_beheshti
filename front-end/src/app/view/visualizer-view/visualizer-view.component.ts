@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {G6BaseService} from './services/g6-base.service';
+import {VisualizerService} from "./services/visualizer.service";
 
 @Component({
     selector: 'app-visualizer-view',
@@ -13,5 +14,7 @@ export class VisualizerViewComponent implements AfterViewInit {
         this.g6BaseService.init(this.container.nativeElement);
     }
 
-    public constructor(private g6BaseService: G6BaseService) {}
+    public constructor(public visualizerService: VisualizerService, private g6BaseService: G6BaseService) {
+
+    }
 }
