@@ -13,12 +13,24 @@ import {GraphApiService} from '../../api/graph-api.service';
 import {VisualizerService} from './services/visualizer.service';
 import {ImagesRepositoryService} from './services/images-repository.service';
 import {NodeImageApiService} from '../../api/node-image-api.service';
+import {PluginsTreeViewComponent} from './plugins/plugins-tree-view/plugins-tree-view.component';
+import {NzTreeViewModule} from 'ng-zorro-antd/tree-view';
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {PluginsService} from "./plugins/plugins-tree-view/services/plugins.service";
+import { CircularLayoutComponent } from './plugins/layouts/circular-layout/circular-layout.component';
 
 @NgModule({
-    declarations: [VisualizerViewComponent, PropertiesViewComponent],
-    providers: [G6BaseService, G6ConfigService, G6UtilitiesService, GraphApiService, VisualizerService, ImagesRepositoryService, NodeImageApiService],
-    imports: [CommonModule, NzCardModule, NzListModule, NzAvatarModule, NzDividerModule],
+    declarations: [VisualizerViewComponent, PropertiesViewComponent, PluginsTreeViewComponent, CircularLayoutComponent],
+    providers: [
+        G6BaseService,
+        G6ConfigService,
+        G6UtilitiesService,
+        GraphApiService,
+        VisualizerService,
+        ImagesRepositoryService,
+        NodeImageApiService,
+        PluginsService
+    ],
+    imports: [CommonModule, NzCardModule, NzListModule, NzAvatarModule, NzDividerModule, NzTreeViewModule, NzIconModule],
 })
-export class VisualizerViewModule {
-
-}
+export class VisualizerViewModule {}

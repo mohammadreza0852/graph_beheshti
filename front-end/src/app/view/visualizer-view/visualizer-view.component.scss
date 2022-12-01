@@ -1,17 +1,34 @@
-#graph-container {
-    width: 100%;
-    height: calc(100% - 45px);
-}
+$plugins-tree-view-width: 350px;
 
-.node-count {
-    width: 100%;
-    height: 45px;
-    background-color: #001529;
-    color: white;
-    display: flex;
+:host {
+    .container {
+        float: right;
+        width: calc(100% - #{$plugins-tree-view-width});
+        height: calc(100% - 45px);
 
-    justify-content: flex-start;
-    align-items: center;
+        #graph-container {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
-    padding: 10px;
+    app-plugins-tree-view {
+        width: $plugins-tree-view-width;
+        height: calc(100% - 45px);
+        float: left;
+        background-color: #00152926;
+    }
+
+    .node-count {
+        width: 100%;
+        height: 45px;
+        background-color: #001529;
+        color: white;
+        display: flex;
+
+        justify-content: flex-start;
+        align-items: center;
+
+        padding: 10px;
+    }
 }

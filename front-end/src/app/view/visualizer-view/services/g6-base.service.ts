@@ -7,6 +7,8 @@ import {ImagesRepositoryService} from './images-repository.service';
 
 @Injectable()
 export class G6BaseService extends G6ConfigService {
+    public graph!: Graph;
+
     public constructor(
         private g6UtilitiesService: G6UtilitiesService,
         private visualizerService: VisualizerService,
@@ -25,11 +27,10 @@ export class G6BaseService extends G6ConfigService {
     }
 
     public async initG6Graph(): Promise<void> {
-        const graph = new G6.Graph(this.g6GraphConfig);
+        this.graph = new G6.Graph(this.g6GraphConfig);
+        this.handleMouseStateChangeOnGraph(this.graph);
 
-        this.handleMouseStateChangeOnGraph(graph);
-
-        this.initGraphSize(graph);
+        this.initGraphSize(this.graph);
         const serverGraphData = await this.visualizerService.getGraph();
         const data = {} as any;
         data.nodes = [];
@@ -63,8 +64,8 @@ export class G6BaseService extends G6ConfigService {
             });
         }
 
-        graph.data(data);
-        graph.render();
+        this.graph.data(data);
+        this.graph.render();
     }
 
     public initGraphSize(graph: Graph): void {
