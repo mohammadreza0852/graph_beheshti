@@ -3,7 +3,7 @@
         position: absolute;
         top: 64px;
         padding: 30px;
-        left: -430px;
+        right: -430px;
 
 
         nz-card {
@@ -11,14 +11,14 @@
         }
 
         &.hide {
-          left: -430px;
+          right: -430px;
 
           animation-name: container-animation-close;
           animation-duration: 0.4s;
         }
 
         &.enable {
-            left: 0;
+            right: 0;
             animation-name: container-animation-open;
 
             animation-duration: 0.4s;
@@ -27,19 +27,19 @@
 
     @keyframes container-animation-open {
         from {
-            left: -430px;
+            right: -430px;
         }
         to {
-            left: 0;
+            right: 0;
         }
     }
 
     @keyframes container-animation-close {
         from {
-            left: 0;
+            right: 0;
         }
         to {
-            left: -430px;
+            right: -430px;
         }
     }
 }
