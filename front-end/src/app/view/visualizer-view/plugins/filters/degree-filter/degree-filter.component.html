@@ -1,0 +1,20 @@
+<nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Degree Filter"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+>
+    <div *nzModalContent class="container">
+        <p>
+            min degree:
+            <nz-input-number
+                [(ngModel)]="minValue"
+                [nzMin]="0"
+                [nzStep]="1"
+                (ngModelChange)="minValueChange()"
+            ></nz-input-number>
+        </p>
+        <p>max degree: <nz-input-number [(ngModel)]="maxValue" [nzMin]="minValue" [nzStep]="1"></nz-input-number></p>
+    </div>
+</nz-modal>

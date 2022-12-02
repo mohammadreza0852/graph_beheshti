@@ -20,6 +20,11 @@ import {PluginsService} from './plugins/plugins-tree-view/services/plugins.servi
 import {CircularLayoutComponent} from './plugins/layouts/circular-layout/circular-layout.component';
 import {GridLayoutComponent} from './plugins/layouts/grid-layout/grid-layout.component';
 import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layout.component';
+import { DegreeFilterComponent } from './plugins/filters/degree-filter/degree-filter.component';
+import {NzModalModule} from "ng-zorro-antd/modal";
+import { ResetGraphComponent } from './plugins/reset-graph/reset-graph.component';
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -29,6 +34,8 @@ import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layo
         CircularLayoutComponent,
         GridLayoutComponent,
         RandomLayoutComponent,
+        DegreeFilterComponent,
+        ResetGraphComponent,
     ],
     providers: [
         G6BaseService,
@@ -48,6 +55,9 @@ import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layo
         NzDividerModule,
         NzTreeViewModule,
         NzIconModule,
+        NzModalModule,
+        NzInputNumberModule,
+        FormsModule
     ],
 })
 export class VisualizerViewModule {}
