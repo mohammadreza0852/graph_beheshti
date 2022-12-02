@@ -31,6 +31,10 @@ export class G6ConfigService {
             },
             hoverOther: {
                 fill: 'rgba(212,166,59,0.25)'
+            },
+            degreeHide: {
+                fill: 'rgba(212,166,59,0.07)',
+                lineWidth: 0
             }
         },
         edgeStateStyles: {
@@ -39,6 +43,9 @@ export class G6ConfigService {
             },
             hoverOther: {
                 stroke: 'rgba(26,52,231,0.25)',
+            },
+            degreeHide: {
+                stroke: 'rgba(26,52,231,0.07)',
             }
         },
 
