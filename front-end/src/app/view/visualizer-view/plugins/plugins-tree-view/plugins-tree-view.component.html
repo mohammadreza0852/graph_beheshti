@@ -6,7 +6,7 @@
                 [nzSelected]="selectListSelection.isSelected(node)"
                 (nzClick)="selectListSelection.toggle(node);click(node)"
         >
-            <span nz-icon nzType="file" nzTheme="outline"></span>
+            <span nz-icon nzType="right-circle" nzTheme="outline"></span>
             {{ node.name }}
         </nz-tree-node-option>
     </nz-tree-node>
@@ -20,10 +20,12 @@
                 [nzSelected]="selectListSelection.isSelected(node)"
                 (nzClick)="selectListSelection.toggle(node)"
         >
-            <span nz-icon [nzType]="treeControl.isExpanded(node) ? 'folder-open' : 'folder'" nzTheme="outline"></span>
+            <span nz-icon nzType="{{treeControl.isExpanded(node) ? 'folder-open' : 'folder'}}" nzTheme="outline"></span>
             {{ node.name }}
         </nz-tree-node-option>
     </nz-tree-node>
 </nz-tree-view>
 
 <app-circular-layout></app-circular-layout>
+<app-random-layout></app-random-layout>
+<app-grid-layout></app-grid-layout>
