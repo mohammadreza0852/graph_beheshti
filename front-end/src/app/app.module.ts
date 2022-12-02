@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {LayoutWrapperModule} from './shared/components/layout-wrapper/layout-wrapper.module';
 import {VisualizerViewModule} from './view/visualizer-view/visualizer-view.module';
 import {ExplorerViewModule} from './view/explorer-view/explorer-view.module';
+import {NzIconTestModule} from "./ng-icon.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,6 +17,7 @@ import {ExplorerViewModule} from './view/explorer-view/explorer-view.module';
         LayoutWrapperModule,
         VisualizerViewModule,
         ExplorerViewModule,
+        NzIconTestModule
     ],
     bootstrap: [AppComponent],
 })

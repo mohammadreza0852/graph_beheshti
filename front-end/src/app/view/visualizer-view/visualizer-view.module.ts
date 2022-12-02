@@ -15,12 +15,21 @@ import {ImagesRepositoryService} from './services/images-repository.service';
 import {NodeImageApiService} from '../../api/node-image-api.service';
 import {PluginsTreeViewComponent} from './plugins/plugins-tree-view/plugins-tree-view.component';
 import {NzTreeViewModule} from 'ng-zorro-antd/tree-view';
-import {NzIconModule} from "ng-zorro-antd/icon";
-import {PluginsService} from "./plugins/plugins-tree-view/services/plugins.service";
-import { CircularLayoutComponent } from './plugins/layouts/circular-layout/circular-layout.component';
+import {NzIconModule} from 'ng-zorro-antd/icon';
+import {PluginsService} from './plugins/plugins-tree-view/services/plugins.service';
+import {CircularLayoutComponent} from './plugins/layouts/circular-layout/circular-layout.component';
+import {GridLayoutComponent} from './plugins/layouts/grid-layout/grid-layout.component';
+import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layout.component';
 
 @NgModule({
-    declarations: [VisualizerViewComponent, PropertiesViewComponent, PluginsTreeViewComponent, CircularLayoutComponent],
+    declarations: [
+        VisualizerViewComponent,
+        PropertiesViewComponent,
+        PluginsTreeViewComponent,
+        CircularLayoutComponent,
+        GridLayoutComponent,
+        RandomLayoutComponent,
+    ],
     providers: [
         G6BaseService,
         G6ConfigService,
@@ -29,8 +38,16 @@ import { CircularLayoutComponent } from './plugins/layouts/circular-layout/circu
         VisualizerService,
         ImagesRepositoryService,
         NodeImageApiService,
-        PluginsService
+        PluginsService,
     ],
-    imports: [CommonModule, NzCardModule, NzListModule, NzAvatarModule, NzDividerModule, NzTreeViewModule, NzIconModule],
+    imports: [
+        CommonModule,
+        NzCardModule,
+        NzListModule,
+        NzAvatarModule,
+        NzDividerModule,
+        NzTreeViewModule,
+        NzIconModule,
+    ],
 })
 export class VisualizerViewModule {}
