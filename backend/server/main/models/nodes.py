@@ -25,6 +25,7 @@ class Person(models.Model):
     name = models.CharField(max_length=255, null=True, verbose_name=_('name'))
     phone_number = models.CharField(max_length=15, null=True, verbose_name=_('phone_number'))
     national_id = models.CharField(max_length=20, unique=True, verbose_name=_('national_id'))
+    salary = models.PositiveIntegerField(verbose_name=_('salary'))
 
     class Meta:
         verbose_name = _('person')
