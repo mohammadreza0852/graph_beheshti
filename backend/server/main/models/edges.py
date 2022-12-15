@@ -34,7 +34,7 @@ class Relation(models.Model):
             return True
         if node_type == self.TypeChoices.Vehicle and Vehicle.objects.filter(manufacture_id=node_id).exists():
             return True
-        return False            
+        return False      
 
     class Meta:
         verbose_name = _('Relation')
