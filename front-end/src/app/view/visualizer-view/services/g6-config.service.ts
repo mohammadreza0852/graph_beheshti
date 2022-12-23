@@ -35,6 +35,11 @@ export class G6ConfigService {
             degreeHide: {
                 fill: 'rgba(212,166,59,0.07)',
                 lineWidth: 0
+            },
+            degreeBold: {
+                lineWidth: 5,
+                stroke: '#494fa0',
+                fill: 'rgb(216,76,227)'
             }
         },
         edgeStateStyles: {

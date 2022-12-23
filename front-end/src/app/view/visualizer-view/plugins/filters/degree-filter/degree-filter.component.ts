@@ -32,6 +32,8 @@ export class DegreeFilterComponent {
 
         for (const node of nodes) {
             this.g6BaseService.graph.setItemState(node, 'degreeHide', false);
+
+            this.g6BaseService.graph.setItemState(node, 'degreeBold', false);
         }
 
         for (const edge of edges) {
@@ -42,6 +44,8 @@ export class DegreeFilterComponent {
             const degree = node.getNeighbors().length;
             if (degree < this.minValue || degree > this.maxValue) {
                 this.g6BaseService.graph.setItemState(node, 'degreeHide', true);
+            } else {
+                this.g6BaseService.graph.setItemState(node, 'degreeBold', true);
             }
         }
 
