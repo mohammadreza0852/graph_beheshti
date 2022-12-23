@@ -25,6 +25,7 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import { ResetGraphComponent } from './plugins/reset-graph/reset-graph.component';
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
+import { NodeDegreeComponent } from './plugins/ranking/node-degree/node-degree.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import {FormsModule} from "@angular/forms";
         RandomLayoutComponent,
         DegreeFilterComponent,
         ResetGraphComponent,
+        NodeDegreeComponent,
     ],
     providers: [
         G6BaseService,
