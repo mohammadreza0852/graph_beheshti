@@ -1,0 +1,21 @@
+<nz-modal
+        [(nzVisible)]="isVisible"
+        nzTitle="Node Ranking"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkLoading]="isOkLoading"
+>
+    <div *nzModalContent class="container">
+        <p>
+            min degree:
+            <nz-input-number
+                    [(ngModel)]="minValue"
+                    [nzMin]="30"
+                    [nzMax]="100"
+                    [nzStep]="1"
+                    (ngModelChange)="valueChange()"
+            ></nz-input-number>
+        </p>
+        <p>max degree: <nz-input-number [(ngModel)]="maxValue" [nzMin]="minValue" [nzStep]="1" [nzMax]="100" (ngModelChange)="valueChange()"></nz-input-number></p>
+    </div>
+</nz-modal>
