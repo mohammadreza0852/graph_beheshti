@@ -11,6 +11,10 @@ Before you begin, ensure that you met the following requirements:
 
 ## Installing the Frontend Project
 
-Just run the following command:
+You have installed the requirement packages with the following command:
+
+`npm i`
+
+Next you can run Frontend Project with following command: 
 
 `npm run start`
