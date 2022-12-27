@@ -46,6 +46,16 @@ export const plugins: PluginData[] = [
                         name: 'degree',
                         expandable: false,
                         subject: new Subject<void>(),
+                    },
+                    {
+                        name: 'custom filters',
+                        expandable: false,
+                        subject: new Subject<void>(),
+                    },
+                    {
+                        name: 'node custom filters',
+                        expandable: false,
+                        subject: new Subject<void>(),
                     }
                 ]
             },

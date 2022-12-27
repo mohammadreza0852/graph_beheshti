@@ -9,15 +9,32 @@ export class GraphApiService {
 
     public constructor(private http: HttpClient) {}
 
-    public async getGraph(datasetId?: number): Promise<GraphDto[]> {
-        let url = `${this.baseUrl}/api/graph/`;
-        if (datasetId){
-            url += `?dataset_id=${datasetId}`;
-        }
+    public async getGraph(datasetId?: number, customFilterId?: number, nodeFilterId?: number): Promise<GraphDto[]> {
+        let url = this.getUrl(datasetId, customFilterId, nodeFilterId);
 
         const result = (await this.http.get(url).toPromise()) as any;
 
         return result.map((x: any) => new GraphDto(x));
+    }
+
+    private getUrl(datasetId?: number, customFilterId?: number, nodeFilterId?: number) {
+        let url = `${this.baseUrl}/api/graph/`;
+        const params: string[] = [];
+
+        if (datasetId) {
+            params.push(`dataset_id=${datasetId}`);
+        }
+
+        if (customFilterId) {
+            params.push(`filter_id=${customFilterId}`)
+        }
+
+        if (nodeFilterId) {
+            params.push(`node_filter_id=${nodeFilterId}`)
+        }
+
+        url += '?' + params.join('&');
+        return url;
     }
 
     public async getNodeProperties(id: number, type: string): Promise<{[key: string]: string}> {

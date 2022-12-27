@@ -26,6 +26,9 @@ import { ResetGraphComponent } from './plugins/reset-graph/reset-graph.component
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
 import { NodeDegreeComponent } from './plugins/ranking/node-degree/node-degree.component';
+import { CustomFiltersComponent } from './plugins/filters/custom-filters/custom-filters.component';
+import { NodeCustomFilterComponent } from './plugins/filters/node-custom-filter/node-custom-filter.component';
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 @NgModule({
     declarations: [
@@ -38,6 +41,8 @@ import { NodeDegreeComponent } from './plugins/ranking/node-degree/node-degree.c
         DegreeFilterComponent,
         ResetGraphComponent,
         NodeDegreeComponent,
+        CustomFiltersComponent,
+        NodeCustomFilterComponent,
     ],
     providers: [
         G6BaseService,
@@ -59,7 +64,8 @@ import { NodeDegreeComponent } from './plugins/ranking/node-degree/node-degree.c
         NzIconModule,
         NzModalModule,
         NzInputNumberModule,
-        FormsModule
+        FormsModule,
+        NzSelectModule
     ],
 })
 export class VisualizerViewModule {}
