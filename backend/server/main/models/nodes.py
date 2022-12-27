@@ -11,6 +11,10 @@ class House(models.Model):
         verbose_name = _('house')
         verbose_name_plural = _('houses')
 
+    @classmethod
+    def get_model_fields(cls):
+        return cls._meta.fields
+
 
 class Vehicle(models.Model):
     manufacture_id = models.CharField(max_length=20, unique=True, verbose_name=_('manufacture_id'))
@@ -19,6 +23,10 @@ class Vehicle(models.Model):
     class Meta:
         verbose_name = _('vehicle')
         verbose_name_plural = _('vehicles')
+
+    @classmethod
+    def get_model_fields(cls):
+        return cls._meta.fields
 
 
 class Person(models.Model):
@@ -30,4 +38,9 @@ class Person(models.Model):
     class Meta:
         verbose_name = _('person')
         verbose_name_plural = _('persons')
+
+    @classmethod
+    def get_model_fields(cls):
+        return cls._meta.fields
+
     
