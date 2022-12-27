@@ -1,0 +1,13 @@
+<nz-modal
+        [(nzVisible)]="isVisible"
+        nzTitle="Custom Filters"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkLoading]="isOkLoading"
+>
+    <div *nzModalContent class="container">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a filter" [(ngModel)]="selectedValue">
+            <nz-option *ngFor="let filter of filters" nzLabel="{{filter.title}}" nzValue="{{filter.id}}"></nz-option>
+        </nz-select>
+    </div>
+</nz-modal>
