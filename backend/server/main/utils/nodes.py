@@ -39,3 +39,14 @@ class NodeUtils:
         for field in fields:
             fields_list.append(field.name)
         return fields_list
+
+    @classmethod
+    def get_node_by_property_and_type(cls, node_type, property_filter):
+        data = None
+        if node_type == cls.NodeChoices.PERSON:
+            data = Person.objects.filter(**property_filter).values_list('national_id', flat=True)
+        if node_type == cls.NodeChoices.HOUSE:
+            data = House.objects.filter(**property_filter).values_list('post_number', flat=True)
+        if node_type == cls.NodeChoices.VEHICLE:
+            data = Vehicle.objects.filter(**property_filter).values_list('manufacture_id', flat=True)
+        return data     

@@ -56,6 +56,6 @@ class NodeCustomFilter(models.Model):
             node_ids = Vehicle.objects.annotate(int_value=Cast(custom_filter.field_name, models.IntegerField()))\
                 .filter(int_value__gte=custom_filter.min_value, int_value__lte=custom_filter.max_value).values_list('manufacture_id', flat=True)
         filtered_queryset = queryset.filter(
-            Q(first_node_id__in=node_ids) & Q(second_node_id__in=node_ids)
+            Q(first_node_id__in=node_ids) | Q(second_node_id__in=node_ids)
         )
         return filtered_queryset
