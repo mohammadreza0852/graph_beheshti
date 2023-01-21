@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 from .api import GraphViewSet, NodeView, DatasetView, NodeImageView, CustomFilterView, NodeCustomFilterView, PropertyView\
-    ,ExpandView
+    ,ExpandView, RecommandNodeView
 
 router = DefaultRouter()
 router.register(r'graph', GraphViewSet, basename='graph')
@@ -15,6 +15,7 @@ app_name = 'main'
 urlpatterns = [
     path('node/', NodeView.as_view()),
     path('expand/', ExpandView.as_view()),
+    path('recommand/', RecommandNodeView.as_view()),
     path('node_image/', NodeImageView.as_view()),
     path('property/', PropertyView.as_view()),
     path('', include(router.urls)),
