@@ -60,6 +60,11 @@ export const plugins: PluginData[] = [
                 ]
             },
             {
+                name: 'expand',
+                expandable: false,
+                subject: new Subject<void>()
+            },
+            {
                 name: 'reset',
                 expandable: false,
                 subject: new Subject<void>()

@@ -20,15 +20,17 @@ import {PluginsService} from './plugins/plugins-tree-view/services/plugins.servi
 import {CircularLayoutComponent} from './plugins/layouts/circular-layout/circular-layout.component';
 import {GridLayoutComponent} from './plugins/layouts/grid-layout/grid-layout.component';
 import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layout.component';
-import { DegreeFilterComponent } from './plugins/filters/degree-filter/degree-filter.component';
+import {DegreeFilterComponent} from './plugins/filters/degree-filter/degree-filter.component';
 import {NzModalModule} from "ng-zorro-antd/modal";
-import { ResetGraphComponent } from './plugins/reset-graph/reset-graph.component';
+import {ResetGraphComponent} from './plugins/reset-graph/reset-graph.component';
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
-import { NodeDegreeComponent } from './plugins/ranking/node-degree/node-degree.component';
-import { CustomFiltersComponent } from './plugins/filters/custom-filters/custom-filters.component';
-import { NodeCustomFilterComponent } from './plugins/filters/node-custom-filter/node-custom-filter.component';
+import {NodeDegreeComponent} from './plugins/ranking/node-degree/node-degree.component';
+import {CustomFiltersComponent} from './plugins/filters/custom-filters/custom-filters.component';
+import {NodeCustomFilterComponent} from './plugins/filters/node-custom-filter/node-custom-filter.component';
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {ExpandSelectedNodesComponent} from './plugins/expand/expand-selected-nodes/expand-selected-nodes.component';
+import {NzMessageModule} from "ng-zorro-antd/message";
 
 @NgModule({
     declarations: [
@@ -43,6 +45,7 @@ import {NzSelectModule} from "ng-zorro-antd/select";
         NodeDegreeComponent,
         CustomFiltersComponent,
         NodeCustomFilterComponent,
+        ExpandSelectedNodesComponent,
     ],
     providers: [
         G6BaseService,
@@ -65,7 +68,9 @@ import {NzSelectModule} from "ng-zorro-antd/select";
         NzModalModule,
         NzInputNumberModule,
         FormsModule,
-        NzSelectModule
+        NzSelectModule,
+        NzMessageModule
     ],
 })
-export class VisualizerViewModule {}
+export class VisualizerViewModule {
+}
