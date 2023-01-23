@@ -32,6 +32,10 @@ export class G6BaseService extends G6ConfigService {
 
         this.initGraphSize(this.graph);
         const serverGraphData = await this.visualizerService.getGraph();
+        await this.renderGraph(serverGraphData)
+    }
+
+    public async renderGraph(serverGraphData: any): Promise<void> {
         const data = {} as any;
         data.nodes = [];
         data.edges = [];

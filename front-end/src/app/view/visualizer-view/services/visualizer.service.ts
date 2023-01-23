@@ -22,8 +22,12 @@ export class VisualizerService {
         return await this.graphApi.getNodeProperties(id, type);
     }
 
-    private getDatasetId(): number {
+    public getDatasetId(): number | null {
         const params = this.getParams();
+
+        if (!params.datasetId) {
+            return null;
+        }
 
         return +params.datasetId;
     }

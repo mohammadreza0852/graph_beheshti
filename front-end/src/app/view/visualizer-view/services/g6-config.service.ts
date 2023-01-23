@@ -12,7 +12,11 @@ export class G6ConfigService {
         container: 'graph-container',
         fitView: true,
         modes: {
-            default: ['drag-canvas', 'drag-node', 'zoom-canvas'],
+            default: ['drag-canvas', 'drag-node', 'zoom-canvas', {
+                type: 'click-select',
+                multiple: false,
+                selectedState: 'selectedNode'
+            }],
         },
         defaultNode: {
             style: {
@@ -40,6 +44,10 @@ export class G6ConfigService {
                 lineWidth: 5,
                 stroke: '#494fa0',
                 fill: 'rgb(216,76,227)'
+            },
+            selectedNode: {
+                stroke: '#c61a1a',
+                lineWidth: 4
             }
         },
         edgeStateStyles: {

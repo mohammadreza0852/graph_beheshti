@@ -9,7 +9,7 @@ export class GraphApiService {
 
     public constructor(private http: HttpClient) {}
 
-    public async getGraph(datasetId?: number, customFilterId?: number, nodeFilterId?: number): Promise<GraphDto[]> {
+    public async getGraph(datasetId: number | null, customFilterId?: number, nodeFilterId?: number): Promise<GraphDto[]> {
         let url = this.getUrl(datasetId, customFilterId, nodeFilterId);
 
         const result = (await this.http.get(url).toPromise()) as any;
@@ -17,7 +17,7 @@ export class GraphApiService {
         return result.map((x: any) => new GraphDto(x));
     }
 
-    private getUrl(datasetId?: number, customFilterId?: number, nodeFilterId?: number) {
+    private getUrl(datasetId: number | null, customFilterId?: number, nodeFilterId?: number) {
         let url = `${this.baseUrl}/api/graph/`;
         const params: string[] = [];
 

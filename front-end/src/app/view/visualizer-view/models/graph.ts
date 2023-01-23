@@ -29,4 +29,34 @@ export class Graph {
             this.edges.push(newEdge);
         }
     }
+
+    public getNode(id: string): GraphNode | null {
+        for (const node of this.nodes) {
+            if (node.graphId === id) {
+                return node;
+            }
+        }
+
+        return null;
+    }
+
+    public isNodeExist(nodeId: string): boolean {
+        for (const node of this.nodes) {
+            if (node.graphId === nodeId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    isEdgeExist(edgeId: string) {
+        for (const edge of this.edges) {
+            if (edge.graphId === edgeId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
