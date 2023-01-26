@@ -1,0 +1,20 @@
+<nz-modal
+        [(nzVisible)]="isVisible"
+        nzTitle="Filter Properties"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkLoading]="isOkLoading"
+>
+    <div *nzModalContent class="container">
+        <div class="select-container">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a node type" [(ngModel)]="selectedNodeType" (ngModelChange)="changeType($event)">
+                <nz-option *ngFor="let nodeType of nodeTypes" nzLabel="{{nodeType}}" nzValue="{{nodeType}}"></nz-option>
+            </nz-select>
+
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a property" [(ngModel)]="selectedProperty">
+                <nz-option *ngFor="let property of properties" nzLabel="{{property}}" nzValue="{{property}}"></nz-option>
+            </nz-select>
+        </div>
+        <input nz-input placeholder="Enter property value" [(ngModel)]="propertyValue" />
+    </div>
+</nz-modal>

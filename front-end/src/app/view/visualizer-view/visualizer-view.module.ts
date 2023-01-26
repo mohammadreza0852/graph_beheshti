@@ -31,6 +31,8 @@ import {NodeCustomFilterComponent} from './plugins/filters/node-custom-filter/no
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {ExpandSelectedNodesComponent} from './plugins/expand/expand-selected-nodes/expand-selected-nodes.component';
 import {NzMessageModule} from "ng-zorro-antd/message";
+import {PropertiesComponent} from "./plugins/filters/properties/properties.component";
+import {NzInputModule} from "ng-zorro-antd/input";
 
 @NgModule({
     declarations: [
@@ -46,6 +48,7 @@ import {NzMessageModule} from "ng-zorro-antd/message";
         CustomFiltersComponent,
         NodeCustomFilterComponent,
         ExpandSelectedNodesComponent,
+        PropertiesComponent
     ],
     providers: [
         G6BaseService,
@@ -69,7 +72,8 @@ import {NzMessageModule} from "ng-zorro-antd/message";
         NzInputNumberModule,
         FormsModule,
         NzSelectModule,
-        NzMessageModule
+        NzMessageModule,
+        NzInputModule
     ],
 })
 export class VisualizerViewModule {

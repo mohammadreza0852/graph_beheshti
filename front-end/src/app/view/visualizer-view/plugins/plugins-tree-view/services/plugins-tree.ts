@@ -43,6 +43,11 @@ export const plugins: PluginData[] = [
                 expandable: true,
                 children: [
                     {
+                        name: 'properties',
+                        expandable: false,
+                        subject: new Subject<void>(),
+                    },
+                    {
                         name: 'degree',
                         expandable: false,
                         subject: new Subject<void>(),
