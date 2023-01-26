@@ -3,6 +3,10 @@ import {PluginsService} from "../../plugins-tree-view/services/plugins.service";
 import {HttpClient} from "@angular/common/http";
 import {Config} from "../../../../../api/config";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {VisualizerService} from "../../../services/visualizer.service";
+import {GraphDto} from "../../../../../api/models/graph-dto";
+import {Graph} from "../../../models/graph";
+import {G6BaseService} from "../../../services/g6-base.service";
 
 @Component({
     selector: 'app-properties',
@@ -29,7 +33,9 @@ export class PropertiesComponent {
     public constructor(
         pluginService: PluginsService,
         private http: HttpClient,
-        private message: NzMessageService) {
+        private message: NzMessageService,
+        private visualizerService: VisualizerService,
+        private g6BaseService: G6BaseService) {
         const plugin = pluginService.getPluginData('properties');
         plugin?.subject?.subscribe(() => {
             this.execute();
@@ -67,7 +73,22 @@ export class PropertiesComponent {
     }
 
     public async search(): Promise<void> {
-        const result = (await this.http.get(`${this.baseUrl}/api/property/?type=${type}`).toPromise()) as any;
+        let url = `${this.baseUrl}/api/graph/?type=${this.selectedNodeType}&${this.selectedProperty}=${this.propertyValue}`;
+        const datasetId = this.visualizerService.getDatasetId();
+        if (datasetId) {
+            url += `&dataset_id=${datasetId}`;
+        }
+        const result = (await this.http
+            .get(url).toPromise()) as any;
+
+        const dto: GraphDto[] = [];
+
+        for (const resultElement of result) {
+            dto.push(new GraphDto(resultElement));
+        }
+
+        this.visualizerService.graph = new Graph(dto);
+        await this.g6BaseService.renderGraph(this.visualizerService.graph);
     }
 
     public handleCancel(): void {
