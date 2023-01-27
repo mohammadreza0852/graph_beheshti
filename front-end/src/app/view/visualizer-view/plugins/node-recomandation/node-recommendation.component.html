@@ -1,0 +1,13 @@
+<nz-modal
+        [(nzVisible)]="isVisible"
+        nzTitle="Recommended nodes"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkLoading]="isOkLoading"
+>
+    <div *nzModalContent class="container">
+        <nz-radio-group [(ngModel)]="radioValue">
+            <label *ngFor="let node of recommendedNodes;let i = index" nz-radio nzValue="{{i}}">{{node.node_id}} | {{node.node_type}}</label>
+        </nz-radio-group>
+    </div>
+</nz-modal>
