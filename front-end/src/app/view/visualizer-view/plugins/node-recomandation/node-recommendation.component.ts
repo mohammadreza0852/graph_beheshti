@@ -57,6 +57,7 @@ export class NodeRecommendationComponent {
         }
         const nodeType = this.selectedNode!.type;
         const nodeId = this.selectedNode!.id;
+
         this.recommendedNodes = (await this.http
             .get(`${this.baseUrl}/api/recommand/?id=${nodeId}&type=${nodeType}`)
             .toPromise()) as any;
@@ -80,8 +81,13 @@ export class NodeRecommendationComponent {
             "dataset": this.visualizerService.getDatasetId()
         };
 
+        const ids: string[] = [];
+        ids.push(`${this.selectedNode!.id}${this.selectedNode!.type}`);
+        ids.push(`${this.recommendedNodes[this.radioValue].node_id}${this.recommendedNodes[this.radioValue].node_type}`);
+
         const result = await this.http.post(url, body).toPromise();
         await this.createGraph(result);
+        this.boldNode(ids);
         this.isVisible = false;
         this.isOkLoading = false;
     }
@@ -113,5 +119,11 @@ export class NodeRecommendationComponent {
 
     handleCancel(): void {
         this.isVisible = false;
+    }
+
+    private boldNode(nodeIds: string[]): void {
+        for (const nodeId of nodeIds) {
+            this.g6BaseService.graph.setItemState(nodeId, 'selectedNode', true);
+        }
     }
 }

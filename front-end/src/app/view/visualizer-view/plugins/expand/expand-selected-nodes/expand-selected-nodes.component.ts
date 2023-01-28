@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {PluginsService} from "../../plugins-tree-view/services/plugins.service";
 import {VisualizerService} from "../../../services/visualizer.service";
 import {G6BaseService} from "../../../services/g6-base.service";
-import G6, {INode} from "@antv/g6";
+import {INode} from "@antv/g6";
 import {GraphNode} from "../../../models/graph-node";
 import {HttpClient} from "@angular/common/http";
 import {Config} from "../../../../../api/config";
@@ -59,11 +59,16 @@ export class ExpandSelectedNodesComponent {
 
         const dto: GraphDto[] = [];
 
+        const ids: string[] = [];
+        ids.push(`${nodeId}${nodeType}`);
+
         const result = (await this.http
             .get(`${this.baseUrl}/api/expand/?id=${nodeId}&type=${nodeType}&dataset_id=${datasetId}`).toPromise()) as any;
 
         for (const resultElement of result) {
             dto.push(new GraphDto(resultElement));
+            ids.push(`${resultElement.first_node_id}${resultElement.first_node_type}`);
+            ids.push(`${resultElement.second_node_id}${resultElement.second_node_type}`);
         }
 
         const graph = new Graph(dto);
@@ -85,5 +90,12 @@ export class ExpandSelectedNodesComponent {
         }
 
         await this.g6BaseService.renderGraph(this.visualizerService.graph);
+        this.boldNode(ids);
+    }
+
+    private boldNode(nodeIds: string[]): void {
+        for (const nodeId of nodeIds) {
+            this.g6BaseService.graph.setItemState(nodeId, 'selectedNode', true);
+        }
     }
 }
