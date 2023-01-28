@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PluginsService} from '../../plugins-tree-view/services/plugins.service';
-import {G6BaseService} from '../../../services/g6-base.service';
 import {CustomFilterService} from './services/custom-filter.service';
 import {CustomFilterDto} from './models/custom-filter-dto';
 

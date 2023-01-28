@@ -65,6 +65,11 @@ export const plugins: PluginData[] = [
                 ]
             },
             {
+                name: 'recommend node',
+                expandable: false,
+                subject: new Subject<void>()
+            },
+            {
                 name: 'expand',
                 expandable: false,
                 subject: new Subject<void>()

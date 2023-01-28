@@ -21,18 +21,20 @@ import {CircularLayoutComponent} from './plugins/layouts/circular-layout/circula
 import {GridLayoutComponent} from './plugins/layouts/grid-layout/grid-layout.component';
 import {RandomLayoutComponent} from './plugins/layouts/random-layout/random-layout.component';
 import {DegreeFilterComponent} from './plugins/filters/degree-filter/degree-filter.component';
-import {NzModalModule} from "ng-zorro-antd/modal";
+import {NzModalModule} from 'ng-zorro-antd/modal';
 import {ResetGraphComponent} from './plugins/reset-graph/reset-graph.component';
-import {NzInputNumberModule} from "ng-zorro-antd/input-number";
-import {FormsModule} from "@angular/forms";
+import {NzInputNumberModule} from 'ng-zorro-antd/input-number';
+import {FormsModule} from '@angular/forms';
 import {NodeDegreeComponent} from './plugins/ranking/node-degree/node-degree.component';
 import {CustomFiltersComponent} from './plugins/filters/custom-filters/custom-filters.component';
 import {NodeCustomFilterComponent} from './plugins/filters/node-custom-filter/node-custom-filter.component';
-import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzSelectModule} from 'ng-zorro-antd/select';
 import {ExpandSelectedNodesComponent} from './plugins/expand/expand-selected-nodes/expand-selected-nodes.component';
-import {NzMessageModule} from "ng-zorro-antd/message";
-import {PropertiesComponent} from "./plugins/filters/properties/properties.component";
-import {NzInputModule} from "ng-zorro-antd/input";
+import {NzMessageModule} from 'ng-zorro-antd/message';
+import {PropertiesComponent} from './plugins/filters/properties/properties.component';
+import {NzInputModule} from 'ng-zorro-antd/input';
+import {NodeRecommendationComponent} from './plugins/node-recomandation/node-recommendation.component';
+import {NzRadioModule} from 'ng-zorro-antd/radio';
 
 @NgModule({
     declarations: [
@@ -48,7 +50,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
         CustomFiltersComponent,
         NodeCustomFilterComponent,
         ExpandSelectedNodesComponent,
-        PropertiesComponent
+        PropertiesComponent,
+        NodeRecommendationComponent,
     ],
     providers: [
         G6BaseService,
@@ -73,8 +76,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
         FormsModule,
         NzSelectModule,
         NzMessageModule,
-        NzInputModule
+        NzInputModule,
+        NzRadioModule,
     ],
 })
-export class VisualizerViewModule {
-}
+export class VisualizerViewModule {}
