@@ -20,12 +20,17 @@ class CustomFilter(models.Model):
     @classmethod
     def filter_graph(cls, queryset, filter_id):
         custom_filter = cls.objects.get(id=filter_id)
+        result = queryset \
+            .values('second_node_id') \
+            .annotate(node_count=models.Count('second_node_id')) \
+            .filter(node_count__gte=custom_filter.min_relations,\
+                 node_count__lte=custom_filter.max_relations) \
+            .order_by().values_list('second_node_id', flat=True)
         filtered_queryset = queryset.filter(
             first_node_type=custom_filter.first_node_type,
             second_node_type=custom_filter.second_node_type,
-        ).annotate(node_count=models.Count('first_node_type')) \
-            .filter(node_count__gte=custom_filter.min_relations,\
-                 node_count__lte=custom_filter.max_relations)
+            second_node_id__in=result
+        )
         return filtered_queryset
 
 
